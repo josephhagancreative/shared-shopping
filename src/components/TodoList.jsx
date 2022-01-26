@@ -51,7 +51,6 @@ export default function TodoList({ deleteHandler, completeHandler }) {
   if (!isLoading) {
     return (
       <>
-        <h1>TodoList</h1>
         <div className="todo-container">
           <ul className="todo-list">
             {items.map((item) => (

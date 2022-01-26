@@ -1,5 +1,5 @@
 import { useState, useContext } from "react"
-import { addDoc, collection } from "firebase/firestore"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 import { db } from "../firebase.config"
 import { v4 as uuidv4 } from "uuid"
 import ItemsContext from "../context/ItemsContext"
@@ -34,25 +34,14 @@ export default function Form({
   const submitItemHandler = async (e) => {
     e.preventDefault()
     if (inputText.length > 0) {
-      // setItems([
-      //   ...items,
-      //   {
-      //     text: inputText,
-      //     quantity: inputQuantity,
-      //     category: inputCategory,
-      //     isComplete: false,
-      //     id: uuidv4(),
-      //   },
-      // ])
       const todoToAdd = {
         text: inputText,
         quantity: inputQuantity,
         category: inputCategory,
         isComplete: false,
+        timestamp: serverTimestamp(),
       }
-
       const docRef = await addDoc(collection(db, "list"), todoToAdd)
-
       setInputText("")
       setInputQuantity("")
       fetchItems()

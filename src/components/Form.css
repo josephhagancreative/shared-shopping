@@ -143,6 +143,13 @@ select {
     border-radius: 0.5rem;
   }
 
+  .select::after {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    padding: 1rem;
+  }
+
   .todos,
   .todo-button {
     width: 50%;

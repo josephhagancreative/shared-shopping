@@ -5,13 +5,14 @@ import ItemsContext from "../context/ItemsContext"
 import {
   doc,
   query,
-  setDoc,
   updateDoc,
   getDocs,
   collection,
+  onSnapshot,
   deleteDoc,
-  getDoc,
 } from "firebase/firestore"
+import { getAuth } from "firebase/auth"
+// import useCollection from "../hooks/useCollection"
 
 // Comps
 import Form from "../components/Form"
@@ -22,6 +23,7 @@ import "./Home.css"
 
 export default function Home() {
   const [itemToEdit, setItemToEdit] = useState(null)
+  // const { documents } = useCollection("list")
   // Context
   const { items, setItems, isLoading, setisLoading } = useContext(ItemsContext)
   // State
@@ -31,30 +33,47 @@ export default function Home() {
   const [status, setStatus] = useState("all")
   const [filteredItems, setFilteredItems] = useState([])
 
+  // Auth obj
+  const auth = getAuth()
+
   // fetch items
   useEffect(() => {
     fetchItems()
   }, [])
 
   const fetchItems = async () => {
-    try {
-      const itemsRef = collection(db, "list")
-      const q = query(itemsRef)
-      const querySnap = await getDocs(q)
+    // try {
 
-      const list = []
+    let ref = collection(db, "list")
 
-      querySnap.forEach((doc) => {
-        list.push({ ...doc.data(), id: doc.id })
+    const unsub = onSnapshot(ref, (snapshot) => {
+      let results = []
+      snapshot.docs.forEach((doc) => {
+        results.push({ ...doc.data(), id: doc.id })
       })
+      setItems(results)
+      setisLoading(false)
+    })
 
-      setItems(list)
-      setisLoading(false)
-    } catch (error) {
-      console.log(error)
-      setisLoading(false)
-    }
+    return () => unsub()
+
+    // const itemsRef = collection(db, "list")
+    // const q = query(itemsRef)
+    // const querySnap = await getDocs(q)
+
+    // const list = []
+
+    // querySnap.forEach((doc) => {
+    //   list.push({ ...doc.data(), id: doc.id })
+    // })
+    // setItems(list)
+    // setisLoading(false)
   }
+  // catch (error) {
+  //   console.log(error)
+  //   setisLoading(false)
+  // }
+  // }
 
   // Delete Item
   const deleteHandler = async (id) => {
@@ -90,7 +109,10 @@ export default function Home() {
   } else {
     return (
       <div className="homeContainer">
-        <h1>Joe's Shopping List:</h1>
+        <h1 className="homeTitle">
+          {auth.currentUser && auth.currentUser.displayName + `'s `}
+          Shopping List:
+        </h1>
         <Form
           inputText={inputText}
           setInputText={setInputText}

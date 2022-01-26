@@ -6,7 +6,11 @@
   justify-content: center;
   text-align: center;
   margin-top: 2rem;
-  padding: 2rem;
+  padding-bottom: 4rem;
+}
+
+.homeTitle {
+  font-size: 1.5rem;
 }
 
 .deleteBought {
