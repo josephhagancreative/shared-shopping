@@ -16,29 +16,29 @@ export default function Item({
   const categoryColor = () => {
     let classAttribute = ""
     switch (category) {
-      case "🍎":
+      case "(food)":
         classAttribute = "food"
         return classAttribute
-      case "🍹":
+      case "(drinks)":
         classAttribute = "drink"
         return classAttribute
-      case "🧼":
+      case "(household)":
         classAttribute = "household"
         return classAttribute
-      case "🖥️":
+      case "(tech)":
         classAttribute = "tech"
         return classAttribute
-      case "📙":
+      case "(media)":
         classAttribute = "book"
         return classAttribute
-      case "👖":
+      case "(clothes)":
         classAttribute = "clothing"
         return classAttribute
-      case "":
-        classAttribute = ""
+      case "(other)":
+        classAttribute = "other"
         return classAttribute
       default:
-        classAttribute = ""
+        classAttribute = "other"
         return classAttribute
     }
   }
@@ -54,7 +54,7 @@ export default function Item({
             isComplete ? "completed" : ""
           } ${categoryColor()} `}>
           {quantity.trim() + " "}
-          {category}
+          <span className="small">{category}</span>
         </span>
       </div>
       <div className="itemButtons">

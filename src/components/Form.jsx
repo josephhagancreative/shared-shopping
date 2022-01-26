@@ -92,13 +92,13 @@ export default function Form({
               <option disabled value="">
                 --Select Category --
               </option>
-              <option value="">No Category</option>
-              <option value="🍎">Food</option>
-              <option value="🍹">Drink</option>
-              <option value="🧼">Household</option>
-              <option value="🖥️">Technology</option>
-              <option value="📙">Books/Stationary</option>
-              <option value="👖">Clothing</option>
+              <option value="(other)">No Category</option>
+              <option value="(food)">Food</option>
+              <option value="(drink)">Drink</option>
+              <option value="(household)">Household</option>
+              <option value="(tech)">Technology</option>
+              <option value="(media)">Books/Stationary</option>
+              <option value="(clothes)">Clothing</option>
             </select>
             <button className="todo-button" type="submit">
               <p>Add Item</p> <i className="fas fa-plus-square"></i>
