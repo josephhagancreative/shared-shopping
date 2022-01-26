@@ -27,3 +27,39 @@
   background-color: #e05454;
   color: white;
 }
+
+@media only screen and (max-width: 600px) {
+  .homeContainer {
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0rem;
+    padding: 0.5rem;
+    padding-top: 10vh;
+  }
+
+  .homeContainer h1 {
+    font-size: 1.3rem;
+  }
+
+  .deleteBought {
+    font-family: "poppins", sans-serif;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid #e05454;
+    background-color: transparent;
+    color: #e05454;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  .deleteBought:hover {
+    background-color: #e05454;
+    color: white;
+  }
+}

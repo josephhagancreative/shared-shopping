@@ -53,3 +53,11 @@
   background: rgb(152, 222, 240);
   border: none;
 }
+
+@media only screen and (max-width: 600px) {
+  .quantitySpan {
+    font-size: 0.8rem;
+    padding: 0.25rem 1rem;
+    margin: 0 0.5rem 0 0.25rem;
+  }
+}
