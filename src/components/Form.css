@@ -1,0 +1,104 @@
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: rgb(6, 227, 182);
+  background: linear-gradient(
+    -45deg,
+    rgba(6, 227, 182, 1) 0%,
+    rgba(181, 246, 195, 1) 65%
+  );
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+  border-radius: 0.5rem;
+}
+
+form input:focus {
+  outline: 2px solid #1de5b7;
+}
+
+form button {
+  color: #1de5b7;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+form button:hover {
+  background: #1de5b7;
+  color: white;
+}
+
+/* Custom Select */
+.select {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+}
+select {
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  width: 12rem;
+  border-radius: 0.5rem;
+}
+
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  color: #1de5b7;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  background: #b5f6c3;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.select:hover:after {
+  color: #3dffd2;
+  background: #caffd6;
+}
+
+.todo-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.todo-button p {
+  text-transform: uppercase;
+  font-size: 1rem;
+  display: inline;
+}
+
+.errorMsg {
+  color: rgb(194, 58, 58);
+  padding: 0.25rem 1rem;
+  border: solid 1px rgb(194, 58, 58);
+  border-radius: 1rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.secondRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}

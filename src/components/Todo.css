@@ -1,0 +1,55 @@
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.quantitySpan {
+  color: #333;
+  font-size: 0.9rem;
+  background: transparent;
+  border: 1px solid #333;
+  padding: 0.25rem 1rem;
+  border-radius: 25px;
+  margin: 0 1rem 0 0.5rem;
+}
+
+.itemDetails {
+  display: flex;
+  align-items: center;
+}
+
+.food {
+  color: rgb(206, 15, 15);
+  background: rgba(250, 233, 233, 0.986);
+  border: none;
+}
+
+.drink {
+  color: rgb(82, 42, 42);
+  background-color: rgb(219, 133, 133);
+  border: none;
+}
+
+.household {
+  color: rgb(170, 56, 132);
+  background: rgb(240, 187, 240);
+  border: none;
+}
+
+.tech {
+  color: rgb(107, 107, 107);
+  background: #ddd;
+  border: none;
+}
+
+.book {
+  color: rgb(224, 116, 26);
+  background: rgb(247, 197, 141);
+  border: none;
+}
+
+.clothing {
+  color: rgb(30, 108, 160);
+  background: rgb(152, 222, 240);
+  border: none;
+}

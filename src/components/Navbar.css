@@ -1,0 +1,42 @@
+.navbarContainer {
+  color: #fefefe;
+  background: rgb(6, 227, 182);
+  background: linear-gradient(
+    -45deg,
+    rgba(6, 227, 182, 1) 0%,
+    rgba(181, 246, 195, 1) 65%
+  );
+  padding: 0.5rem 2rem;
+
+  border-radius: 0px 0px 1rem 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #11e4b6;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1rem;
+  letter-spacing: 3px;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border-radius: 50px;
+}
+.links {
+  display: flex;
+  gap: 1rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.links li a:hover {
+  color: #0b7e63;
+}

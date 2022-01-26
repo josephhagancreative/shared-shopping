@@ -1,0 +1,29 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.deleteBought {
+  font-family: "poppins", sans-serif;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #e05454;
+  background-color: transparent;
+  color: #e05454;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.deleteBought:hover {
+  background-color: #e05454;
+  color: white;
+}
