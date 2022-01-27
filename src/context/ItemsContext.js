@@ -4,9 +4,9 @@ const ItemsContext = createContext()
 
 export const ItemsProvider = ({ children }) => {
   const [items, setItems] = useState([{}])
-  const [isLoading, setisLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   return (
-    <ItemsContext.Provider value={{ items, setItems, isLoading, setisLoading }}>
+    <ItemsContext.Provider value={{ items, setItems, isLoading, setIsLoading }}>
       {children}
     </ItemsContext.Provider>
   )

@@ -11,15 +11,17 @@
 
 .homeTitle {
   font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
 }
 
 .deleteBought {
   font-family: "poppins", sans-serif;
   padding: 1rem;
   border-radius: 1rem;
-  border: 1px solid #e05454;
+  border: 1px solid var(--red-d);
   background-color: transparent;
-  color: #e05454;
+  color: var(--red-d);
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: 500;
@@ -28,8 +30,9 @@
 }
 
 .deleteBought:hover {
-  background-color: #e05454;
-  color: white;
+  border: none;
+  background-color: var(--red-l);
+  color: var(--white);
 }
 
 @media only screen and (max-width: 600px) {
@@ -51,19 +54,12 @@
     font-family: "poppins", sans-serif;
     padding: 0.5rem 1rem;
     border-radius: 1rem;
-    border: 1px solid #e05454;
     background-color: transparent;
-    color: #e05454;
     text-transform: uppercase;
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 1px;
     cursor: pointer;
     margin-top: 1rem;
-  }
-
-  .deleteBought:hover {
-    background-color: #e05454;
-    color: white;
   }
 }

@@ -4,10 +4,10 @@
 }
 
 .quantitySpan {
-  color: #333;
+  color: var(--black);
   font-size: 0.9rem;
   background: transparent;
-  border: 1px solid #333;
+  border: 1px solid var(--black);
   padding: 0.25rem 1rem;
   border-radius: 25px;
   margin: 0 1rem 0 0.5rem;

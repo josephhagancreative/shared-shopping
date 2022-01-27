@@ -2,8 +2,6 @@
 import "./Todo.css"
 
 export default function Item({
-  items,
-  item,
   id,
   text,
   category,
@@ -45,7 +43,7 @@ export default function Item({
 
   return (
     <div className="todo">
-      <div className="itemDetails">
+      <div className="itemDetails" onClick={() => completeHandler(id)}>
         <li className={`todo-item ${isComplete ? "completed" : ""}  `}>
           {text.trim()}
         </li>

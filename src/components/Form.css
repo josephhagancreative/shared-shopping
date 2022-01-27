@@ -18,7 +18,7 @@ form button {
   padding: 0.5rem;
   font-size: 2rem;
   border: none;
-  background: white;
+  background: var(--white);
   border-radius: 0.5rem;
 }
 
@@ -28,13 +28,13 @@ form input:focus {
 
 form button {
   color: #1de5b7;
-  background: white;
+  background: var(--white);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 form button:hover {
   background: #1de5b7;
-  color: white;
+  color: var(--white);
 }
 
 /* Custom Select */
@@ -85,9 +85,9 @@ select {
 }
 
 .errorMsg {
-  color: rgb(194, 58, 58);
+  color: var(--red-d);
   padding: 0.25rem 1rem;
-  border: solid 1px rgb(194, 58, 58);
+  border: solid 1px var(--red-d);
   border-radius: 1rem;
 }
 
@@ -156,9 +156,7 @@ select {
   }
 
   .errorMsg {
-    color: rgb(194, 58, 58);
     padding: 0.25rem 1rem;
-    border: solid 1px rgb(194, 58, 58);
     border-radius: 1rem;
   }
 

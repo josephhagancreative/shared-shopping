@@ -1,8 +1,7 @@
 import { useState, useContext } from "react"
+import { toast } from "react-toastify"
 import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 import { db } from "../firebase.config"
-import { v4 as uuidv4 } from "uuid"
-import ItemsContext from "../context/ItemsContext"
 
 // Styles
 import "./Form.css"
@@ -18,8 +17,6 @@ export default function Form({
   fetchItems,
 }) {
   // Context
-  const { items, setItems } = useContext(ItemsContext)
-
   const [errorMsg, setErrorMsg] = useState("")
 
   const inputTextHandler = (e) => {
@@ -44,12 +41,15 @@ export default function Form({
       const docRef = await addDoc(collection(db, "list"), todoToAdd)
       setInputText("")
       setInputQuantity("")
-      fetchItems()
     } else {
-      setErrorMsg("Please enter an Item!")
-      setTimeout(() => {
-        setErrorMsg("")
-      }, 3000)
+      toast.error("Please enter an item!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+      })
     }
   }
   const statusHandler = (e) => {

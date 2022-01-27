@@ -1,16 +1,10 @@
-import { useState } from "react"
 import "./EditModal.css"
 
 import React from "react"
-import { setSelectionRange } from "@testing-library/user-event/dist/utils"
 
 export default function EditModal({
   cancelEdit,
-  todos,
-  setTodos,
-  itemToEdit,
   updateItem,
-  text,
   updatedText,
   setUpdatedText,
 }) {
