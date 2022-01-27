@@ -31,7 +31,7 @@ function App() {
       <ToastContainer
         position="bottom-center"
         pauseOnHover={false}
-        autoClose={3000}
+        autoClose={1500}
       />
     </>
   )

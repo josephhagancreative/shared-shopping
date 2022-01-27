@@ -20,7 +20,8 @@ import Spinner from "../components/Spinner"
 
 // Functional Component
 export default function Home() {
-  const { items, setItems, isLoading, setIsLoading } = useContext(ItemsContext)
+  const { items, setItems, isLoading, setIsLoading, user } =
+    useContext(ItemsContext)
   // State
   const [inputText, setInputText] = useState("")
   const [inputQuantity, setInputQuantity] = useState("")

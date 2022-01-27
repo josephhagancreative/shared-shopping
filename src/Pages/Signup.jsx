@@ -114,6 +114,7 @@ export default function Signup() {
                     onChange={onChange}
                   />
                   <button
+                    type="button"
                     className={showPassword ? "passwordBtn" : ""}
                     onClick={onClick}>
                     <i className="fas fa-eye"></i>

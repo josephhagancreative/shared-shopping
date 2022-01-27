@@ -12,7 +12,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({ email: "", password: "" })
 
-  const { isLoading, setIsLoading } = useContext(ItemsContext)
+  const { isLoading, setIsLoading, setUser } = useContext(ItemsContext)
 
   const { email, password } = formData
 
@@ -28,7 +28,6 @@ export default function Login() {
   }
 
   const onChange = (e) => {
-    console.log(e.target.value)
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
@@ -49,6 +48,7 @@ export default function Login() {
       )
 
       if (userCredential.user) {
+        setUser(userCredential)
         toast.success("Successfully Logged In")
         navigate("/")
         setIsLoading(false)
@@ -87,6 +87,7 @@ export default function Login() {
                     onChange={onChange}
                   />
                   <button
+                    type="button"
                     className={showPassword ? "passwordBtn" : ""}
                     onClick={onClick}>
                     <i className="fas fa-eye"></i>
