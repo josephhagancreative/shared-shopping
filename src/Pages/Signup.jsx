@@ -87,24 +87,32 @@ export default function Signup() {
           <header className="loginTitle">Share Your List Today!</header>
           <main>
             <form onSubmit={handleSubmit} className="loginForm">
-              <div className="inputContainer">
-                <input
-                  type="name"
-                  className="nameInput"
-                  placeholder="Name"
-                  id="name"
-                  value={name}
-                  onChange={onChange}
-                />
-                <input
-                  type="email"
-                  className="emailInput"
-                  placeholder="Email"
-                  id="email"
-                  value={email}
-                  onChange={onChange}
-                />
+              <h3 className="authTitle">Sign Up</h3>
+              <div className="authInputContainer">
+                <div className="emailContainer">
+                  <label htmlFor="name">Name:</label>
+                  <input
+                    type="name"
+                    className="nameInput"
+                    placeholder="Name"
+                    id="name"
+                    value={name}
+                    onChange={onChange}
+                  />
+                </div>
+                <div className="emailContainer">
+                  <label htmlFor="email">Email:</label>
+                  <input
+                    type="email"
+                    className="emailInput"
+                    placeholder="Email"
+                    id="email"
+                    value={email}
+                    onChange={onChange}
+                  />
+                </div>
                 <div className="passwordContainer">
+                  <label htmlFor="password">Password:</label>
                   <input
                     type={showPassword ? "text" : "password"}
                     className="passwordInput"
@@ -115,7 +123,9 @@ export default function Signup() {
                   />
                   <button
                     type="button"
-                    className={showPassword ? "passwordBtn" : ""}
+                    className={
+                      showPassword ? "passwordBtn show" : "passwordBtn"
+                    }
                     onClick={onClick}>
                     <i className="fas fa-eye"></i>
                   </button>

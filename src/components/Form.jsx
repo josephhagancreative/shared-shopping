@@ -58,7 +58,7 @@ export default function Form({
   return (
     <>
       <form className="formForm" onSubmit={submitItemHandler}>
-        <div className="inputContainer">
+        <div className="formInputContainer">
           <input
             onChange={inputTextHandler}
             type="text"
@@ -79,18 +79,15 @@ export default function Form({
               name="todos"
               className="filter-todo">
               <option disabled value="">
-                --Select Category --
+                --Select Priority --
               </option>
-              <option value="(other)">No Category</option>
-              <option value="(food)">Food</option>
-              <option value="(drink)">Drink</option>
-              <option value="(household)">Household</option>
-              <option value="(tech)">Technology</option>
-              <option value="(media)">Books/Stationary</option>
-              <option value="(clothes)">Clothing</option>
+              <option value="No Priority">No Pririty</option>
+              <option value="High Priority">High Priority</option>
+              <option value="Medium Priority">Medium Priority</option>
+              <option value="Low Priority">Low Priority</option>
             </select>
             <button className="todo-button" type="submit">
-              <p>Add Item</p> <i className="fas fa-plus-square"></i>
+              <p>Add Item</p> <i className="fas fa-plus-square buttonIcon"></i>
             </button>
           </div>
         </div>

@@ -23,42 +23,29 @@
 
 .itemDetails {
   display: flex;
-  align-items: center;
 }
 
-.food {
-  color: rgb(206, 15, 15);
-  background: rgba(250, 233, 233, 0.986);
-  border: none;
-}
-
-.drink {
-  color: rgb(82, 42, 42);
-  background-color: rgb(219, 133, 133);
-  border: none;
-}
-
-.household {
-  color: rgb(170, 56, 132);
-  background: rgb(240, 187, 240);
-  border: none;
-}
-
-.tech {
-  color: rgb(107, 107, 107);
+.priority-0 {
+  color: rgb(77, 77, 77);
   background: #ddd;
   border: none;
 }
 
-.book {
-  color: rgb(224, 116, 26);
-  background: rgb(247, 197, 141);
+.priority-1 {
+  color: rgb(30, 108, 160);
+  background: rgb(152, 222, 240);
   border: none;
 }
 
-.clothing {
-  color: rgb(30, 108, 160);
-  background: rgb(152, 222, 240);
+.priority-2 {
+  color: rgb(207, 105, 21);
+  background: rgb(255, 213, 164);
+  border: none;
+}
+
+.priority-3 {
+  color: rgb(206, 15, 15);
+  background: rgba(255, 192, 192, 0.986);
   border: none;
 }
 

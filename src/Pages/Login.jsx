@@ -12,7 +12,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({ email: "", password: "" })
 
-  const { isLoading, setIsLoading, setUser } = useContext(ItemsContext)
+  const { isLoading, setIsLoading } = useContext(ItemsContext)
 
   const { email, password } = formData
 
@@ -38,8 +38,8 @@ export default function Login() {
     e.preventDefault()
 
     try {
-      setIsLoading(true)
       const auth = getAuth()
+      setIsLoading(true)
 
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -48,12 +48,12 @@ export default function Login() {
       )
 
       if (userCredential.user) {
-        setUser(userCredential)
         toast.success("Successfully Logged In")
         navigate("/")
         setIsLoading(false)
       }
     } catch (error) {
+      console.error(error)
       toast.error("Problem Logging In")
       setIsLoading(false)
     }
@@ -68,16 +68,21 @@ export default function Login() {
           <header className="loginTitle">Welcome Back!</header>
           <main>
             <form onSubmit={handleSubmit} className="loginForm">
-              <div className="inputContainer">
-                <input
-                  type="email"
-                  className="emailInput"
-                  placeholder="Email"
-                  id="email"
-                  value={email}
-                  onChange={onChange}
-                />
+              <h3 className="authTitle">Log In</h3>
+              <div className="authInputContainer">
+                <div className="emailContainer">
+                  <label htmlFor="email">Email:</label>
+                  <input
+                    type="email"
+                    className="emailInput"
+                    placeholder="Email"
+                    id="email"
+                    value={email}
+                    onChange={onChange}
+                  />
+                </div>
                 <div className="passwordContainer">
+                  <label htmlFor="password">Password:</label>
                   <input
                     type={showPassword ? "text" : "password"}
                     className="passwordInput"
@@ -88,7 +93,9 @@ export default function Login() {
                   />
                   <button
                     type="button"
-                    className={showPassword ? "passwordBtn" : ""}
+                    className={
+                      showPassword ? "passwordBtn show" : "passwordBtn"
+                    }
                     onClick={onClick}>
                     <i className="fas fa-eye"></i>
                   </button>

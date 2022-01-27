@@ -1,4 +1,4 @@
-form {
+.homeContainer > form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,8 +13,13 @@ form {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-form input,
-form button {
+.formInputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todo-input {
   padding: 0.5rem;
   font-size: 2rem;
   border: none;
@@ -22,19 +27,42 @@ form button {
   border-radius: 0.5rem;
 }
 
-form input:focus {
+.todo-input input {
+  border-radius: 1rem;
+  border: none;
+}
+
+.todo-input:focus {
   outline: 2px solid #1de5b7;
 }
 
-form button {
+.todo-button {
   color: #1de5b7;
   background: var(--white);
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  outline: none;
+  padding: 0 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
 }
-form button:hover {
+.todo-button:hover {
   background: #1de5b7;
   color: var(--white);
+}
+
+.todo-button p {
+  text-transform: uppercase;
+  font-size: 1rem;
+  display: inline;
+}
+
+.buttonIcon {
+  font-size: 2rem;
 }
 
 /* Custom Select */
@@ -71,19 +99,6 @@ select {
   background: #caffd6;
 }
 
-.todo-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.todo-button p {
-  text-transform: uppercase;
-  font-size: 1rem;
-  display: inline;
-}
-
 .errorMsg {
   color: var(--red-d);
   padding: 0.25rem 1rem;
@@ -91,10 +106,8 @@ select {
   border-radius: 1rem;
 }
 
-.inputContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+div.homeContainer > form > div > input {
+  border: none;
 }
 
 .secondRow {
@@ -104,7 +117,10 @@ select {
 }
 
 @media only screen and (max-width: 600px) {
-  form {
+  .formForm {
+    width: 100%;
+  }
+  .formInputContainer form {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -120,8 +136,7 @@ select {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
-  form input,
-  form button {
+  .todo-input {
     font-size: 1.2rem;
   }
 
@@ -160,7 +175,7 @@ select {
     border-radius: 1rem;
   }
 
-  .inputContainer {
+  .formInputContainer {
     width: 100%;
   }
 }

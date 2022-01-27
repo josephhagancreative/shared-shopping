@@ -1,3 +1,19 @@
+.todo {
+  margin: 0.5rem;
+  background: var(--white);
+  font-size: 1.5rem;
+  color: var(--black);
+  transition: all 1s ease;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding-left: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.itemDetails {
+  width: 100%;
+}
+
 .todo-container {
   display: flex;
   justify-content: center;
@@ -12,21 +28,38 @@
   gap: 5px;
 }
 
-.todo {
-  margin: 0.5rem;
-  background: var(--white);
-  font-size: 1.5rem;
-  color: var(--black);
+.editForm {
   display: flex;
-  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  transition: all 1s ease;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  padding-left: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 100%;
 }
+
+.editWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.editWrapper input {
+  font-family: "Poppis", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f1f1f1;
+  color: var(--black);
+}
+
+.editWrapper input:focus {
+  outline: 1px solid var(--green-d);
+}
+
+.todoEdit {
+  width: 10rem;
+  max-width: 90%;
+}
+
 .filter-todo {
   padding: 1rem;
 }
@@ -64,6 +97,9 @@
 
 .todo-item {
   padding: 0rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .fa-trash,
@@ -98,12 +134,8 @@
     justify-content: space-between;
   }
 
-  /* .itemDetails {
-    flex: 1;
-  } */
-
   .itemButtons {
-    flex: 0;
+    display: flex;
   }
 
   .filter-todo {
