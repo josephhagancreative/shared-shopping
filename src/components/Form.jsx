@@ -2,6 +2,7 @@ import { useState, useContext } from "react"
 import { toast } from "react-toastify"
 import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 import { db } from "../firebase.config"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 // Styles
 import "./Form.css"
@@ -18,6 +19,7 @@ export default function Form({
 }) {
   // Context
   const [errorMsg, setErrorMsg] = useState("")
+  const { user, authIsReady } = useAuthContext()
 
   const inputTextHandler = (e) => {
     setInputText(e.target.value)
@@ -28,6 +30,8 @@ export default function Form({
   const inputCategoryHandler = (e) => {
     setInputCategory(e.target.value)
   }
+
+  // Add
   const submitItemHandler = async (e) => {
     e.preventDefault()
     if (inputText.length > 0) {
@@ -38,7 +42,10 @@ export default function Form({
         isComplete: false,
         timestamp: serverTimestamp(),
       }
-      const docRef = await addDoc(collection(db, "list"), todoToAdd)
+      const docRef = await addDoc(
+        collection(db, "users", user.uid, "list"),
+        todoToAdd
+      )
       setInputText("")
       setInputQuantity("")
     } else {
@@ -81,7 +88,7 @@ export default function Form({
               <option disabled value="">
                 --Select Priority --
               </option>
-              <option value="No Priority">No Pririty</option>
+              <option value="No Priority">No Priority</option>
               <option value="High Priority">High Priority</option>
               <option value="Medium Priority">Medium Priority</option>
               <option value="Low Priority">Low Priority</option>

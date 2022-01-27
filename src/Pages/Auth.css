@@ -18,6 +18,14 @@
   border-radius: 1rem;
 }
 
+.authInputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
 .authInputContainer input {
   background-color: var(--white);
   padding: 0.5rem;
@@ -67,6 +75,7 @@
 .loginButton {
   background-color: var(--green-d);
   padding: 0.5rem;
+  font-size: 1.2rem;
   border-radius: 1rem;
   color: var(--white);
   border: 2px solid var(--green-d);

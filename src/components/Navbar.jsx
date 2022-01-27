@@ -1,26 +1,19 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useState } from "react"
-import { toast } from "react-toastify"
-import { getAuth, signOut } from "firebase/auth"
+import { useLogout } from "../hooks/useLogout"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 // Styles
 import "./Navbar.css"
 
 export default function Navbar() {
   const [showNav, setShowNav] = useState(false)
-  const auth = getAuth()
-  const navigate = useNavigate()
+  const { logout } = useLogout()
+  const { user, authIsReady } = useAuthContext()
 
   const signout = () => {
-    signOut(auth)
-      .then(() => {
-        setShowNav(false)
-        navigate("/login")
-      })
-      .then(toast.success("Signed Out"))
-      .catch((error) => {
-        toast("Error Signing Out")
-      })
+    logout()
+    setShowNav(false)
   }
 
   const toggleNav = () => {
@@ -44,7 +37,7 @@ export default function Navbar() {
             <Link to="/about">About</Link>
           </li>
           <li>
-            {auth.currentUser ? (
+            {user ? (
               <a onClick={signout} className="loginOut">
                 Logout
               </a>

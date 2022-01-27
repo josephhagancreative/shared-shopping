@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { updateDoc, doc } from "firebase/firestore"
 import { db } from "../firebase.config"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 // styles
 import "./Todo.css"
@@ -16,10 +17,11 @@ export default function Item({
 }) {
   const [isEditable, setIsEditable] = useState(false)
   const [itemToEdit, setItemToEdit] = useState(text)
+  const { user, authIsReady } = useAuthContext()
 
   const handleEdit = () => {
-    console.log("Editable")
     setIsEditable(!isEditable)
+    document.getElementById("editInput").focus()
   }
 
   const handleMutate = (e) => {
@@ -27,7 +29,7 @@ export default function Item({
   }
 
   const submitEdit = async (id) => {
-    const docRef = doc(db, "list", id)
+    const docRef = doc(db, "users", user.uid, "list", id)
 
     await updateDoc(docRef, {
       text: itemToEdit,
@@ -63,16 +65,18 @@ export default function Item({
           <form className="editForm">
             <div className="editWrapper">
               <input
+                id="editInput"
                 className="todo-item todoEdit"
                 onChange={(e) => handleMutate(e)}
+                onBlur={() => submitEdit(id)}
                 value={itemToEdit}
               />
+              <span className="quantitySpan">x{quantity.trim() + " "}</span>
               <span
-                className={`quantitySpan ${
+                className={`small quantitySpan ${
                   isComplete ? "completed" : ""
                 } ${categoryColor()} `}>
-                {quantity.trim() + " "}
-                <span className="small">{category}</span>
+                {category}
               </span>
             </div>
 
@@ -90,12 +94,12 @@ export default function Item({
               className={`todo-item ${isComplete ? "completed" : ""}  `}
               onClick={() => handleEdit()}>
               {text.trim()}
+              <span className="quantitySpan">x{quantity.trim() + " "}</span>
               <span
-                className={`quantitySpan ${
+                className={`small quantitySpan ${
                   isComplete ? "completed" : ""
                 } ${categoryColor()} `}>
-                {quantity.trim() + " "}
-                <span className="small">{category}</span>
+                {category}
               </span>
             </li>
             <div className="itemButtons">

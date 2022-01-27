@@ -7,7 +7,8 @@ export const ItemsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [user, setUser] = useState(null)
   return (
-    <ItemsContext.Provider value={{ items, setItems, isLoading, setIsLoading }}>
+    <ItemsContext.Provider
+      value={{ items, setItems, isLoading, setIsLoading, setUser }}>
       {children}
     </ItemsContext.Provider>
   )

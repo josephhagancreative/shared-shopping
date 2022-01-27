@@ -6,9 +6,11 @@ export default function About() {
     <div className="aboutContainer">
       <h1 className="homeTitle">About Shared Shopping</h1>
       <p className="aboutText">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-        eligendi necessitatibus, iste exercitationem cum eum recusandae
-        consequatur sunt ducimus reprehenderit.
+        Welcome to Shared Shopping, the shopping list app you can share!
+      </p>
+      <p className="aboutText">...sharing coming soon...</p>
+      <p className="aboutText">
+        for now it's just a really nice shopping list app!
       </p>
       <Link to="/signup" className="loginOut signupAbout">
         Sign Up Today
