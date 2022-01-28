@@ -15,6 +15,12 @@
   justify-content: center;
 }
 
+.listItemName {
+  cursor: text;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
 .small {
   font-size: 0.7rem;
 }

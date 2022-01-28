@@ -2,30 +2,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
+  padding: 2rem;
   border-radius: 0.5rem;
-  background: var(--green-d);
-  /* background: var(--gradient); */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 250ms ease-out;
 }
 
 .formInputContainer {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .todo-input {
   padding: 0.5rem;
   font-size: 2rem;
-  border: none;
   background: var(--white);
   border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  outline: 1px solid var(--grey);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 250ms ease-out;
 }
 
-.todo-input input {
-  border-radius: 1rem;
-  border: none;
+.todo-input:hover {
+  outline: 2px solid var(--green-d);
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 8px 12px;
+  transform: scale(1.03);
 }
 
 .todo-input:focus {
@@ -42,38 +46,64 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0 0.5rem;
-  border: none;
   border-radius: 0.5rem;
+  border: none;
+  outline: 1px solid var(--grey);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 250ms ease-out;
 }
 .todo-button:hover {
   background: var(--green-m);
+  outline: 2px solid var(--green-d);
+  color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 8px 12px;
+  transform: scale(1.03);
+}
+.todo-button:hover p {
   color: var(--white);
 }
 
 .todo-button p {
-  text-transform: uppercase;
+  text-transform: none;
   font-size: 1rem;
   display: inline;
+  color: var(--black);
+  font-weight: 700;
 }
 
 .buttonIcon {
   font-size: 2rem;
 }
 
+.filter-todo {
+  border: 1px solid var(--green-d);
+}
+
 /* Custom Select */
 .select {
   position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  display: block;
+  justify-content: start;
   border-radius: 0.5rem;
+  /* border: 2px solid var(--green-d); */
+  outline: 1px solid var(--grey);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 250ms ease-out;
 }
+.select:hover {
+  background-color: var(--green-m);
+  outline: 2px solid var(--green-d);
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 8px 12px;
+  transform: scale(1.03);
+}
+
 select {
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   width: 12rem;
   border-radius: 0.5rem;
+  font-size: 1rem;
 }
 
 /* Arrow */
@@ -105,21 +135,15 @@ select {
   background: var(--white);
 }
 
-.errorMsg {
-  color: var(--red-d);
-  padding: 0.25rem 1rem;
-  border: solid 1px var(--red-d);
-  border-radius: 1rem;
-}
-
-div.homeContainer > form > div > input {
-  border: none;
-}
-
 .secondRow {
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
+}
+
+.thirdRow {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media only screen and (max-width: 600px) {
@@ -141,16 +165,6 @@ div.homeContainer > form > div > input {
   }
 
   /* Custom Select */
-  .select {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    border-radius: 0.5rem;
-    gap: 1rem;
-    width: 100%;
-  }
   select {
     font-family: "Poppins", sans-serif;
     cursor: pointer;

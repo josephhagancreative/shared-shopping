@@ -62,7 +62,7 @@ export default function Item({
         {/* Edit Mode */}
         {isEditable ? (
           <form className="editForm">
-            <div className="editWrapper">
+            <span className="editWrapper">
               <input
                 id="editInput"
                 className="todo-item todoEdit"
@@ -70,7 +70,7 @@ export default function Item({
                 onBlur={() => submitEdit(id)}
                 value={itemToEdit}
               />
-            </div>
+            </span>
 
             <button
               type="submit"
@@ -106,7 +106,7 @@ export default function Item({
                 <>
                   <button
                     className="complete-btn"
-                    onClick={() => completeHandler(id)}>
+                    onClick={(e) => completeHandler(id, e)}>
                     <i className="fas fa-check"></i>
                   </button>
                   <button

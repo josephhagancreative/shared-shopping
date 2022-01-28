@@ -73,19 +73,21 @@ export default function Form({
             value={inputQuantity}
             placeholder="Quantity"
           />
-          <div className="select">
-            <select
-              onChange={inputCategoryHandler}
-              name="todos"
-              className="filter-todo">
-              <option disabled value="">
-                --Select Priority --
-              </option>
-              <option value="No Priority">No Priority</option>
-              <option value="urgent">High Priority</option>
-              <option value="soon">Medium Priority</option>
-              <option value="non-urgent">Low Priority</option>
-            </select>
+          <div className="thirdRow">
+            <div className="select">
+              <select
+                onChange={inputCategoryHandler}
+                name="todos"
+                className="filter-todo">
+                <option disabled value="">
+                  --Select Priority --
+                </option>
+                <option value="No Priority">No Priority</option>
+                <option value="urgent">High Priority</option>
+                <option value="soon">Medium Priority</option>
+                <option value="non-urgent">Low Priority</option>
+              </select>
+            </div>
             <button className="todo-button" type="submit">
               <p>Add Item</p> <i className="fas fa-plus-square buttonIcon"></i>
             </button>
