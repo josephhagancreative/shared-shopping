@@ -1,4 +1,3 @@
-import { useState, useContext } from "react"
 import { toast } from "react-toastify"
 import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 import { db } from "../firebase.config"
@@ -18,8 +17,7 @@ export default function Form({
   fetchItems,
 }) {
   // Context
-  const [errorMsg, setErrorMsg] = useState("")
-  const { user, authIsReady } = useAuthContext()
+  const { user } = useAuthContext()
 
   const inputTextHandler = (e) => {
     setInputText(e.target.value)
@@ -42,10 +40,7 @@ export default function Form({
         isComplete: false,
         timestamp: serverTimestamp(),
       }
-      const docRef = await addDoc(
-        collection(db, "users", user.uid, "list"),
-        todoToAdd
-      )
+      await addDoc(collection(db, "users", user.uid, "list"), todoToAdd)
       setInputText("")
       setInputQuantity("")
     } else {
@@ -59,14 +54,12 @@ export default function Form({
       })
     }
   }
-  const statusHandler = (e) => {
-    setStatus(e.target.value)
-  }
   return (
     <>
       <form className="formForm" onSubmit={submitItemHandler}>
         <div className="formInputContainer">
           <input
+            required
             onChange={inputTextHandler}
             type="text"
             className="todo-input"
@@ -89,9 +82,9 @@ export default function Form({
                 --Select Priority --
               </option>
               <option value="No Priority">No Priority</option>
-              <option value="High Priority">High Priority</option>
-              <option value="Medium Priority">Medium Priority</option>
-              <option value="Low Priority">Low Priority</option>
+              <option value="urgent">High Priority</option>
+              <option value="soon">Medium Priority</option>
+              <option value="non-urgent">Low Priority</option>
             </select>
             <button className="todo-button" type="submit">
               <p>Add Item</p> <i className="fas fa-plus-square buttonIcon"></i>
@@ -99,7 +92,6 @@ export default function Form({
           </div>
         </div>
       </form>
-      {errorMsg && <p className="errorMsg">{errorMsg}</p>}
     </>
   )
 }

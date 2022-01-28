@@ -6,12 +6,13 @@
   transition: all 1s ease;
   border-radius: 0.5rem;
   overflow: hidden;
-  padding-left: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 250ms ease-out;
 }
 
-.itemDetails {
-  width: 100%;
+.todo:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 8px 12px;
+  transform: scale(1.03);
 }
 
 .todo-container {
@@ -69,8 +70,7 @@
 }
 
 .trash-btn,
-.complete-btn,
-.edit-btn {
+.complete-btn {
   color: var(--white);
   border: none;
   padding: 1rem;
@@ -133,6 +133,7 @@
     font-size: 1.2rem;
     width: 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .itemButtons {

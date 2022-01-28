@@ -4,12 +4,8 @@
   align-items: center;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background: rgb(6, 227, 182);
-  background: linear-gradient(
-    -45deg,
-    rgba(6, 227, 182, 1) 0%,
-    rgba(181, 246, 195, 1) 65%
-  );
+  background: var(--green-d);
+  /* background: var(--gradient); */
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -33,11 +29,11 @@
 }
 
 .todo-input:focus {
-  outline: 2px solid #1de5b7;
+  outline: 2px solid var(--black);
 }
 
 .todo-button {
-  color: #1de5b7;
+  color: var(--green-d);
   background: var(--white);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -45,13 +41,12 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  outline: none;
   padding: 0 0.5rem;
   border: none;
   border-radius: 0.5rem;
 }
 .todo-button:hover {
-  background: #1de5b7;
+  background: var(--green-m);
   color: var(--white);
 }
 
@@ -84,19 +79,30 @@ select {
 /* Arrow */
 .select::after {
   content: "\25BC";
-  color: #1de5b7;
+  color: var(--green-d);
   position: absolute;
   top: 0;
   right: 0;
   padding: 1rem;
-  background: #b5f6c3;
+  background: var(--white);
   cursor: pointer;
   pointer-events: none;
 }
 
-.select:hover:after {
-  color: #3dffd2;
-  background: #caffd6;
+.filter-todo:hover {
+  color: var(--white);
+  background: var(--green-m);
+}
+.filter-todo option:disabled {
+  background: var(--white);
+  color: #696969;
+}
+.filter-todo option {
+  background: var(--white);
+  color: var(--black);
+}
+.filter-todo option:hover {
+  background: var(--white);
 }
 
 .errorMsg {
@@ -127,12 +133,6 @@ div.homeContainer > form > div > input {
     align-items: center;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    background: rgb(6, 227, 182);
-    background: linear-gradient(
-      -45deg,
-      rgba(6, 227, 182, 1) 0%,
-      rgba(181, 246, 195, 1) 65%
-    );
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 

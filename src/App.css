@@ -2,6 +2,7 @@
 
 :root {
   --green-l: #55efc4;
+  --green-m: #11dab1;
   --green-d: #00b894;
   --yellow-l: #ffeaa7;
   --yellow-d: #fdcb6e;
@@ -9,6 +10,11 @@
   --red-d: #d63031;
   --black: #222222;
   --white: #fefefe;
+  --gradient: linear-gradient(
+    180deg,
+    rgba(85, 239, 196, 1) 0%,
+    rgba(0, 184, 148, 1) 100%
+  );
 }
 
 * {

@@ -11,7 +11,7 @@ export default function TodoList({ deleteHandler, completeHandler }) {
 
   // state
   const [isEditable, setIsEditable] = useState(false)
-  const [itemToEdit, setItemToEdit] = useState({})
+  const [setItemToEdit] = useState({})
 
   const handleEdit = (id) => {
     setIsEditable(!isEditable)

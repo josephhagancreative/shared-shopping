@@ -15,8 +15,10 @@
 .signupAbout {
   background-color: var(--green-d);
   font-size: 1.2rem;
+  border: none;
 }
-.signupAbout:hover {
-  background-color: var(--green-l);
-  color: var(--white);
+.loginOut.signupAbout:hover {
+  background-color: var(--green-m);
+  color: var(--white) !important;
+  border: none;
 }

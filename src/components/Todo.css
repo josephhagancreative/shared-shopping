@@ -4,10 +4,10 @@
 }
 
 .quantitySpan {
-  color: var(--black);
-  font-size: 0.9rem;
+  color: #696969;
+  font-size: 0.7rem;
   background: transparent;
-  border: 1px solid var(--black);
+  border: 1px solid #696969;
   padding: 0.25rem 0.75rem;
   border-radius: 25px;
   display: flex;
@@ -21,6 +21,7 @@
 
 .itemDetails {
   display: flex;
+  justify-content: space-between;
 }
 
 .priority-0 {
@@ -52,5 +53,11 @@
     font-size: 0.8rem;
     padding: 0.25rem 1rem;
     margin: 0 0.5rem 0 0.25rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .small {
+    display: none;
   }
 }

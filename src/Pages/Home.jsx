@@ -1,16 +1,12 @@
 import { useState, useEffect, useContext } from "react"
 import ItemsContext from "../context/ItemsContext"
-import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { useAuthContext } from "../hooks/useAuthContext"
 import {
   doc,
   updateDoc,
-  arrayUnion,
   collection,
-  getDocs,
   onSnapshot,
   deleteDoc,
-  getDoc,
 } from "firebase/firestore"
 import { db } from "../firebase.config"
 
@@ -30,12 +26,8 @@ export default function Home() {
   const [inputQuantity, setInputQuantity] = useState("")
   const [inputCategory, setInputCategory] = useState("")
   const [status, setStatus] = useState("all")
-  const [filteredItems, setFilteredItems] = useState([])
-  const [testData, setTestData] = useState([])
-  const { user, authIsReady } = useAuthContext()
-
-  // Auth obj
-  const auth = getAuth()
+  const [filteredItems] = useState([])
+  const { user } = useAuthContext()
 
   // Delete Single Item
   const deleteHandler = async (id) => {
@@ -51,43 +43,35 @@ export default function Home() {
   }
 
   // Set Item as Completed
-  const completeHandler = async (id) => {
-    const itemCopy = items.find((item) => item.id === id)
-    const itemRef = doc(db, "users", user.uid, "list", id)
+  const completeHandler = async (id, e) => {
+    if (e.target.className !== "listItemName") {
+      const itemCopy = items.find((item) => item.id === id)
+      const itemRef = doc(db, "users", user.uid, "list", id)
 
-    if (itemCopy.isComplete === true) {
-      await updateDoc(itemRef, { isComplete: false })
-    } else {
-      await updateDoc(itemRef, { isComplete: true })
+      if (itemCopy.isComplete === true) {
+        await updateDoc(itemRef, { isComplete: false })
+      } else {
+        await updateDoc(itemRef, { isComplete: true })
+      }
     }
   }
 
   // Fetch Items
   useEffect(() => {
-    pushToUserDocArray()
-  }, [])
-  const pushToUserDocArray = async () => {
-    let ref = collection(db, "users", user.uid, "list")
-    const unsub = onSnapshot(ref, (snapshot) => {
-      let results = []
-      snapshot.docs.forEach((doc) => {
-        results.push({ ...doc.data(), id: doc.id })
+    const pushToUserDocArray = async () => {
+      let ref = collection(db, "users", user.uid, "list")
+      const unsub = onSnapshot(ref, (snapshot) => {
+        let results = []
+        snapshot.docs.forEach((doc) => {
+          results.push({ ...doc.data(), id: doc.id })
+        })
+        setItems(results)
+        setIsLoading(false)
       })
-      setItems(results)
-      setIsLoading(false)
-    })
-    return () => unsub()
-    // let test = []
-    // const querySnapshot = await getDocs(
-    //   collection(db, "users", user.uid, "list")
-    // )
-    // querySnapshot.forEach((doc) => {
-    //   test.push({ ...doc.data(), id: doc.id })
-    // })
-    // setTestData(test)
-    // setItems(test)
-    // setIsLoading(false)
-  }
+      return () => unsub()
+    }
+    pushToUserDocArray()
+  }, [setIsLoading, setItems, user.uid])
 
   // Return
   if (isLoading) {

@@ -17,11 +17,10 @@ export default function Item({
 }) {
   const [isEditable, setIsEditable] = useState(false)
   const [itemToEdit, setItemToEdit] = useState(text)
-  const { user, authIsReady } = useAuthContext()
+  const { user } = useAuthContext()
 
   const handleEdit = () => {
     setIsEditable(!isEditable)
-    document.getElementById("editInput").focus()
   }
 
   const handleMutate = (e) => {
@@ -42,13 +41,13 @@ export default function Item({
       case "No Priority":
         classAttribute = "priority-0"
         return classAttribute
-      case "High Priority":
+      case "urgent":
         classAttribute = "priority-3"
         return classAttribute
-      case "Medium Priority":
+      case "soon":
         classAttribute = "priority-2"
         return classAttribute
-      case "Low Priority":
+      case "non-urgent":
         classAttribute = "priority-1"
         return classAttribute
       default:
@@ -71,13 +70,6 @@ export default function Item({
                 onBlur={() => submitEdit(id)}
                 value={itemToEdit}
               />
-              <span className="quantitySpan">x{quantity.trim() + " "}</span>
-              <span
-                className={`small quantitySpan ${
-                  isComplete ? "completed" : ""
-                } ${categoryColor()} `}>
-                {category}
-              </span>
             </div>
 
             <button
@@ -92,15 +84,22 @@ export default function Item({
           <>
             <li
               className={`todo-item ${isComplete ? "completed" : ""}  `}
-              onClick={() => handleEdit()}>
-              {text.trim()}
-              <span className="quantitySpan">x{quantity.trim() + " "}</span>
-              <span
-                className={`small quantitySpan ${
-                  isComplete ? "completed" : ""
-                } ${categoryColor()} `}>
-                {category}
-              </span>
+              onClick={(e) => completeHandler(id, e)}>
+              <p className="listItemName" onClick={() => handleEdit()}>
+                {text.trim()}
+              </p>
+              {quantity !== "" && (
+                <span className="quantitySpan">{quantity.trim() + " "}</span>
+              )}
+
+              {category !== "" && (
+                <span
+                  className={`small quantitySpan ${
+                    isComplete ? "completed" : ""
+                  } ${categoryColor()} `}>
+                  {category}
+                </span>
+              )}
             </li>
             <div className="itemButtons">
               {!isEditable && (
