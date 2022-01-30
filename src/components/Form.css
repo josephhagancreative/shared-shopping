@@ -35,7 +35,7 @@
 }
 
 .todo-input:focus {
-  outline: 2px solid var(--black);
+  outline: 2px solid var(--green-d);
 }
 
 .todo-button {
