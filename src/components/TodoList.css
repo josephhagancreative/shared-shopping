@@ -141,3 +141,18 @@
     padding: 0.5rem 0.5rem;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .todo-item {
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .quantitySpan {
+    border: none;
+    padding: 0.25rem;
+    padding-top: 0;
+  }
+}
