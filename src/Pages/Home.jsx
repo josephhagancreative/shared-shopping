@@ -102,6 +102,7 @@ export default function Home() {
               deleteHandler={deleteHandler}
               completeHandler={completeHandler}
             />
+
             <button onClick={deleteCompletedHandler} className="deleteBought">
               Delete All Checked Items
             </button>
