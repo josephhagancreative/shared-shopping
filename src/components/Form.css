@@ -169,6 +169,10 @@ select {
     font-size: 1.2rem;
   }
 
+  .todo-input:focus {
+    outline: none;
+  }
+
   /* Custom Select */
   select {
     font-family: "Poppins", sans-serif;

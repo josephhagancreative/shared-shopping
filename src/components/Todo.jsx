@@ -88,18 +88,20 @@ export default function Item({
               <p className="listItemName" onClick={() => handleEdit()}>
                 {text.trim()}
               </p>
-              {quantity !== "" && (
-                <span className="quantitySpan">{quantity.trim() + " "}</span>
-              )}
+              <div className="tagContainer">
+                {quantity !== "" && (
+                  <span className="quantitySpan">{quantity.trim() + " "}</span>
+                )}
 
-              {category !== "" && (
-                <span
-                  className={`small quantitySpan ${
-                    isComplete ? "completed" : ""
-                  } ${categoryColor()} `}>
-                  {category}
-                </span>
-              )}
+                {category !== "" && (
+                  <span
+                    className={`small quantitySpan ${
+                      isComplete ? "completed" : ""
+                    } ${categoryColor()} `}>
+                    {category}
+                  </span>
+                )}
+              </div>
             </li>
             <div className="itemButtons">
               {!isEditable && (
